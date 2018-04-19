@@ -91,7 +91,6 @@ find $BUILD_DIR/.apt -type f -ipath '*/pkgconfig/*.pc' | xargs --no-run-if-empty
 
 
 ## Install ffmpeg
-
 VENDOR_DIR="vendor"
 DOWNLOAD_URL="http://johnvansickle.com/ffmpeg/releases/ffmpeg-release-32bit-static.tar.xz"
 echo "DOWNLOAD_URL = " $DOWNLOAD_URL | indent
@@ -99,7 +98,8 @@ echo "DOWNLOAD_URL = " $DOWNLOAD_URL | indent
 cd $BUILD_DIR
 mkdir -p $VENDOR_DIR
 cd $VENDOR_DIR
-curl -L --silent $DOWNLOAD_URL | tar xv
+curl -L --silent $DOWNLOAD_URL
+tar xvf ffmpeg-release-32bit-static.tar.xz
 
 echo "exporting PATH and LIBRARY_PATH" | indent
 PROFILE_PATH="$BUILD_DIR/.profile.d/ffmpeg.sh"
