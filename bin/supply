@@ -13,7 +13,6 @@ output_dir=$(mktemp -d -t supplyXXX)
 ## Install ffmpeg
 VENDOR_DIR="vendor"
 DOWNLOAD_URL="http://johnvansickle.com/ffmpeg/releases/ffmpeg-release-32bit-static.tar.xz"
-echo "DOWNLOAD_URL = " $DOWNLOAD_URL | indent
 
 cd $BUILD_DIR
 mkdir -p $VENDOR_DIR
@@ -21,7 +20,6 @@ cd $VENDOR_DIR
 wget $DOWNLOAD_URL
 tar xvf ffmpeg-release-32bit-static.tar.xz
 
-echo "exporting PATH" | indent
 PROFILE_PATH="$BUILD_DIR/.profile.d/ffmpeg.sh"
 mkdir -p $(dirname $PROFILE_PATH)
 echo 'export PATH="$PATH:$HOME/vendor/ffmpeg-3.4.2-32bit-static"' >> $PROFILE_PATH
